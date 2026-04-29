@@ -1,0 +1,129 @@
+{
+  "name": "glyph-ai",
+  "displayName": "Glyph AI",
+  "description": "Persistent project context for AI coding agents",
+  "version": "0.0.1",
+  "publisher": "kshitij-shresth",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/glyph-dev/glyph"
+  },
+  "license": "MIT",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "glyph.start",
+        "title": "Glyph: Start"
+      },
+      {
+        "command": "glyph.configureKeys",
+        "title": "Glyph: Configure API Keys"
+      },
+      {
+        "command": "glyph.configureNvidiaKey",
+        "title": "Glyph: Configure NVIDIA Key"
+      },
+      {
+        "command": "glyph.configureOpenAIKey",
+        "title": "Glyph: Configure OpenAI Key"
+      },
+      {
+        "command": "glyph.configureAnthropicKey",
+        "title": "Glyph: Configure Anthropic Key"
+      },
+      {
+        "command": "glyph.configureOllamaUrl",
+        "title": "Glyph: Configure Ollama URL"
+      },
+      {
+        "command": "glyph.buildBrain",
+        "title": "Glyph: Build Brain"
+      },
+      {
+        "command": "glyph.rebuildBrain",
+        "title": "Glyph: Rebuild Brain"
+      },
+      {
+        "command": "glyph.viewBrain",
+        "title": "Glyph: View Brain"
+      },
+      {
+        "command": "glyph.plan",
+        "title": "Glyph: Plan Task"
+      },
+      {
+        "command": "glyph.execute",
+        "title": "Glyph: Execute Plan"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "glyph.start",
+        "key": "ctrl+shift+k",
+        "mac": "cmd+shift+k"
+      }
+    ],
+    "configuration": {
+      "title": "Glyph",
+      "properties": {
+        "glyph.defaultProvider": {
+          "type": "string",
+          "default": "ollama",
+          "description": "Default model provider"
+        },
+        "glyph.defaultModel": {
+          "type": "string",
+          "default": "codellama",
+          "description": "Default model to use"
+        },
+        "glyph.maxSteps": {
+          "type": "number",
+          "default": 10,
+          "description": "Maximum steps per task"
+        },
+        "glyph.autoUpdateBrain": {
+          "type": "boolean",
+          "default": true,
+          "description": "Auto-update brain after tasks"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.96.0",
+    "@types/node": "^20.16.0",
+    "@types/mocha": "^10.0.7",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "typescript": "^5.5.0",
+    "ts-loader": "^9.5.1",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4",
+    "@vscode/test-electron": "^2.4.0"
+  },
+  "dependencies": {
+  }
+}
