@@ -2,7 +2,7 @@
   "name": "glyph-ai",
   "displayName": "Glyph AI",
   "description": "Persistent project context for AI coding agents",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "kshitij-shresth",
   "engines": {
     "vscode": "^1.96.0"
